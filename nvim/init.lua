@@ -4,10 +4,10 @@ local opt = vim.o
 local g = vim.g
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
--- g.mapleader = ' '
--- g.maplocalleader = ' '
+g.mapleader = ' '
+g.maplocalleader = ' '
 
-vim.opt.clibboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 
 opt.compatible = false
 
@@ -95,7 +95,7 @@ vim.diagnostic.config {
 
 g.editorconfig = true
 
-vim.opt.colorcolumn = ' '
+vim.opt.colorcolumn = ''
 
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')
