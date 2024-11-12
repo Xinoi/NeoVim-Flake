@@ -85,6 +85,9 @@ with final.pkgs.lib; let
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    pyright
+    clang-tools
+    rust-analyzer
     lua-language-server
     nil # nix LSP
   ];

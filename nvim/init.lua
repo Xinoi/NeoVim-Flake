@@ -42,6 +42,8 @@ opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
 
+vim.opt.clibboard = "unnamedplus"
+
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Configure Neovim diagnostic messages
@@ -94,7 +96,7 @@ vim.diagnostic.config {
 
 g.editorconfig = true
 
-vim.opt.colorcolumn = '100'
+vim.opt.colorcolumn = ''
 
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')
