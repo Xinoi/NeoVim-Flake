@@ -4,10 +4,10 @@ local opt = vim.o
 local g = vim.g
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
-g.mapleader = ' '
-g.maplocalleader = ' '
+-- g.mapleader = ' '
+-- g.maplocalleader = ' '
 
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clibboard = "unnamedplus"
 
 opt.compatible = false
 
@@ -22,7 +22,6 @@ end
 opt.path = vim.o.path .. '**'
 
 opt.number = true
-opt.relativenumber = true
 opt.cursorline = true
 opt.lazyredraw = true
 opt.showmatch = true -- Highlight matching parentheses, etc
