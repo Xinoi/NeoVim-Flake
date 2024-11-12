@@ -67,11 +67,15 @@ cmp.setup {
         complete_with_source('path')
       end
     end, { 'i', 'c', 's' }),
-    ['<C-n>'] = cmp.mapping(function(fallback)
+
+   -- Confirm selection with the first Tab press and cycle with additional Tab presses
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
-      -- expand_or_jumpable(): Jump outside the snippet region
-      -- expand_or_locally_jumpable(): Only jump inside the snippet region
+        if cmp.get_selected_entry() then
+          cmp.confirm({ select = false }) -- Confirm the current selection
+        else
+          cmp.select_next_item() -- No selection yet, move to the first item
+        end
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       elseif has_words_before() then
@@ -79,8 +83,9 @@ cmp.setup {
       else
         fallback()
       end
-    end, { 'i', 'c', 's' }),
-    ['<C-p>'] = cmp.mapping(function(fallback)
+    end, { 'i', 's' }),   
+
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -97,9 +102,6 @@ cmp.setup {
         cmp.complete()
       end
     end, { 'i', 'c', 's' }),
-    ['<C-y>'] = cmp.mapping.confirm {
-      select = true,
-    },
   },
   sources = cmp.config.sources {
     -- The insertion order influences the priority of the sources
@@ -148,16 +150,16 @@ cmp.setup.cmdline(':', {
   },
 })
 
-vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, { noremap = false, desc = '[cmp] complete' })
-vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function()
+vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, { noremap = false, desc = '[cmp] complete' }) -- trigger autocompletion
+vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function() -- completion for file paths
   complete_with_source('path')
 end, { noremap = false, desc = '[cmp] path' })
-vim.keymap.set({ 'i', 'c', 's' }, '<C-o>', function()
+vim.keymap.set({ 'i', 'c', 's' }, '<C-o>', function() -- completion for lsp
   complete_with_source('nvim_lsp')
 end, { noremap = false, desc = '[cmp] lsp' })
-vim.keymap.set({ 'c' }, '<C-h>', function()
+vim.keymap.set({ 'c' }, '<C-h>', function() -- previous command line suggestions
   complete_with_source('cmdline_history')
 end, { noremap = false, desc = '[cmp] cmdline history' })
-vim.keymap.set({ 'c' }, '<C-c>', function()
+vim.keymap.set({ 'c' }, '<C-c>', function() -- opens suggestions in command mode
   complete_with_source('cmdline')
 end, { noremap = false, desc = '[cmp] cmdline' })
