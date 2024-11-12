@@ -42,7 +42,7 @@ opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
 
-vim.opt.clibboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
