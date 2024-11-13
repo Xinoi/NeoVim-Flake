@@ -8,6 +8,7 @@ g.mapleader = ' '
 g.maplocalleader = ' '
 
 vim.opt.clipboard = "unnamedplus"
+vim.cmd 'colorscheme rose-pine'
 
 opt.compatible = false
 
