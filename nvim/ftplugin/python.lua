@@ -1,4 +1,4 @@
-local pyright_cmd = 'pyright-langserver'
+local pyright_cmd = 'pyright'
 
 if vim.fn.executable(pyright_cmd) ~= 1 then
   return
