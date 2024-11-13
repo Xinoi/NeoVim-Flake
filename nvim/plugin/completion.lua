@@ -2,12 +2,11 @@ if vim.g.did_load_completion_plugin then
   return
 end
 vim.g.did_load_completion_plugin = true
-
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect'}
 
 local function has_words_before()
   local unpack_ = unpack or table.unpack
@@ -26,7 +25,7 @@ end
 
 cmp.setup {
   completion = {
-    completeopt = 'menu,menuone,noinsert',
+    completeopt = 'menu,menuone,noinsert,noselect',
     -- autocomplete = false,
   },
   formatting = {
@@ -69,11 +68,9 @@ cmp.setup {
     end, { 'i', 'c', 's' }),
     ['<Tab>'] = cmp.mapping(function (fallback)
       if cmp.visible() then
-        cmp.confirm({ select = true })
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
+        cmp.select_next_item()
+      elseif luasnip.jumpable(1) then
+        luasnip.jump(1)
       else
         fallback()
       end
@@ -96,7 +93,7 @@ cmp.setup {
         cmp.complete()
       end
     end, { 'i', 'c', 's' }),
-    ['<C-y>'] = cmp.mapping.confirm {
+    ['<Enter>'] = cmp.mapping.confirm {
       select = true,
     },
   },
