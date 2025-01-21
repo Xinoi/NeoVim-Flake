@@ -33,4 +33,6 @@ require("autoclose").setup({
    },
 })
 
+-- vimtex 
+vim.g.vimtex_view_method = 'zathura'
 
