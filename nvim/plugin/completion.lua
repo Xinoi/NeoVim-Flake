@@ -121,6 +121,14 @@ cmp.setup.filetype('lua', {
   },
 })
 
+cmp.setup.filetype('tex', {
+  sources = cmp.config.sources({
+    { name = 'latex_symbols' },
+    { name = 'vsnip' },
+    { name = 'buffer' },
+  }),
+})
+
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
