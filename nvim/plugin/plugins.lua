@@ -33,6 +33,8 @@ require("autoclose").setup({
    },
 })
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 -- vimtex 
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_enabled = 1
