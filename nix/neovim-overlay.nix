@@ -83,6 +83,8 @@ with final.pkgs.lib; let
     which-key-nvim
     autoclose-nvim
     rose-pine
+    # Latex 
+   vimtex 
   ];
 
   extraPackages = with pkgs; [
