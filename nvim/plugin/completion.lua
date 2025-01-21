@@ -5,6 +5,8 @@ vim.g.did_load_completion_plugin = true
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
+luasnip.setup({})
+require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect'}
 
