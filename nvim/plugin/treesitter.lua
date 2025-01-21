@@ -15,6 +15,13 @@ configs.setup {
     disable = function(_, buf)
       local max_filesize = 100 * 1024 -- 100 KiB
       local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      local filetype = vim.api.nvim_buf_get_option(buf, "filetype")
+
+      -- check if latex file
+      if filetype == "latex" then
+        return true
+      end
+
       if ok and stats and stats.size > max_filesize then
         return true
       end
