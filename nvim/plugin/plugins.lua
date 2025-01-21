@@ -35,5 +35,6 @@ require("autoclose").setup({
 
 -- vimtex 
 vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_enabled = 1
 vim.g.vimtex_complete_enabled = 1
 

@@ -123,6 +123,7 @@ cmp.setup.filetype('lua', {
 
 cmp.setup.filetype('tex', {
   sources = cmp.config.sources({
+    { name = 'omni' },
     { name = 'latex_symbols' },
     { name = 'vsnip' },
     { name = 'buffer' },
