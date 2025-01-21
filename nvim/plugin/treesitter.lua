@@ -18,7 +18,7 @@ configs.setup {
       local filetype = vim.api.nvim_buf_get_option(buf, "filetype")
 
       -- check if latex file
-      if filetype == "latex" then
+      if filetype == "latex" or filetype == "tex" then
         return true
       end
 
