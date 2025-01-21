@@ -85,7 +85,7 @@ with final.pkgs.lib; let
     autoclose-nvim
     rose-pine
     # Latex 
-   vimtex 
+    vimtex 
   ];
 
   extraPackages = with pkgs; [
@@ -95,6 +95,7 @@ with final.pkgs.lib; let
     rust-analyzer
     lua-language-server
     nil # nix LSP
+    texlab
   ];
 in {
   # This is the neovim derivation
