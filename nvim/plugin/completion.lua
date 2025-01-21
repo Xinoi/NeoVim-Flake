@@ -128,8 +128,8 @@ cmp.setup.filetype('lua', {
 cmp.setup.filetype('tex', {
   sources = cmp.config.sources({
     { name = 'vimtex' },       -- Vimtex completions (labels, environments, etc.)
+    { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'nvim_lsp' },     -- texlab LSP completions
     { name = 'buffer' },
     { name = 'latex_symbols' }, -- Optional: For symbols like \alpha → α
   }),
