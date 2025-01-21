@@ -99,9 +99,10 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     -- The insertion order influences the priority of the sources
-    { name = 'omni' },
     { name = 'nvim_lsp', keyword_length = 3 },
     { name = 'nvim_lsp_signature_help', keyword_length = 3 },
+    { name = 'vimtex' },
+    { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
   },
@@ -124,10 +125,11 @@ cmp.setup.filetype('lua', {
 
 cmp.setup.filetype('tex', {
   sources = cmp.config.sources({
-    { name = 'omni' },
-    { name = 'latex_symbols' },
-    { name = 'vsnip' },
+    { name = 'vimtex' },       -- Vimtex completions (labels, environments, etc.)
+    { name = 'nvim_lsp' },     -- texlab LSP completions
+    { name = 'luasnip' },      -- Use luasnip instead of vsnip
     { name = 'buffer' },
+    { name = 'latex_symbols' }, -- Optional: For symbols like \alpha → α
   }),
 })
 
